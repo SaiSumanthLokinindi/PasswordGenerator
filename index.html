@@ -35,14 +35,27 @@
             <input
               type="range"
               id="passwordLength"
+              value="12"
               min="8"
               max="32"
               name="Password Length"
             /></div><span>32</span></div>
           </fieldset>
-          <div>Uppercase 
-            <input type="checkbox">
+          <div class="password-filters-container">
+            <div class="password-filter-control"><label for="uppercaseFilter">Uppercase</label>
+              <input id="uppercaseFilter" type="checkbox">
+            </div>
+            <div class="password-filter-control"><label for="lowercaseFilter">Lowercase</label> 
+              <input id="lowercaseFilter" type="checkbox">
+            </div>
+            <div class="password-filter-control"><label for="numbersFilter">Numbers</label> 
+              <input id="numbersFilter" type="checkbox">
+            </div>
+            <div class="password-filter-control"><label for="symbolsFilter">Symbols</label> 
+              <input id="symbolsFilter" type="checkbox">
+            </div>
           </div>
+          
         </div>
       </section>
     </main>

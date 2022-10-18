@@ -76,54 +76,15 @@ h3{
 .password-settings-container{
     .password-settings-controls{
 
-        & > div{
-            margin-bottom: .5rem;
-            display: inline-flex;
-            input{
-                appearance: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                height: 1.25rem;
-                width: 2.5rem;
-                background-color: white;
-                border-radius: 10px;
-                position: relative;
-                cursor: pointer;
-                transition: all .2s;
-            }
-
-            input::before{
-                content:'';
-                height: 1.25rem;
-                width: 1.25rem;
-                position: absolute;
-                background: black;
-                border-radius: 50%;
-                top: 0;
-                left: 0px;
-                transition: all .2s;
-            }
-
-            input:checked{
-                background: red;
-            }
-
-            input:checked:before{
-                transform: translate(100%);
-            }
-        }
-
         fieldset{
             appearance: none;
             padding: 0;
             margin: 0;
             border:none;
-            display: flex;
-            flex-direction: column;
 
             .password-length-range-input{
                 display: inline-flex;
-                margin: .25rem 0;
+                width: 100%;
 
                 span:nth-of-type(1){
                     margin-right: 0.5rem;
@@ -206,6 +167,65 @@ h3{
                 background: $accent-color;
             }
 
+        }
+
+        .password-filters-container{
+            width: 100%;
+            margin: 1rem 0;
+            @include flex(row, center, space-between);
+
+            .password-filter-control{
+
+                @include flex(row, center, space-between);
+                width: inherit;
+                margin: 0 .5rem;
+
+                &:first-of-type{
+                    margin-left: 0;
+                }
+
+                &:last-of-type{
+                    margin-right: 0;
+                }
+                
+
+                input{
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    height: 1.25rem;
+                    width: 2.5rem;
+                    margin: 0;
+                    background-color: $primary-background-color;
+                    outline: 2px solid $accent-color;
+                    box-sizing: border-box;
+                    border-radius: 10px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all .2s;
+                }
+    
+                input::before{
+                    content:'';
+                    height: 1.25rem;
+                    width: 1.25rem;
+                    position: absolute;
+                    background: white;
+                    border-radius: 50%;
+                    box-shadow: 0 0 2px 0 rgba(0,0,0,.15);
+                    transition: all .2s;
+                }
+    
+                input:checked{
+                    background: $accent-color;
+                    outline: 2px solid white;
+                }
+    
+                input:checked:before{
+                    transform: translate(100%);
+                    background:white;
+                }
+            }
             
         }
     }
