@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="password-container">
+        <div class="password-text-container">
+          <div class="password-text">a1&b39!mxH$2k%</div>
+          <button class="copy-btn"><img src="./assets/copy_icon.svg" /></button>
+        </div>
+        <button label="Generate password" class="generate-btn">Generate</button>
+      </section>
+      <section class="password-settings-container">
+        <h3 class="password-settings-title">Password Settings</h3>
+        <div class="password-settings-controls">
+          <fieldset>
+            <label for="passowrdLength">Length</label>
+            <div class="password-length-range-input">
+            <span>8</span>
+            <div class="range-container">
+            <div class="range-tooltip" id="rangeValue">32</div>
+            <input
+              type="range"
+              id="passwordLength"
+              min="8"
+              max="32"
+              name="Password Length"
+            /></div><span>32</span></div>
+          </fieldset>
+          <div>Uppercase 
+            <input type="checkbox">
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js" async defer></script>
+  </body>
+</html>
