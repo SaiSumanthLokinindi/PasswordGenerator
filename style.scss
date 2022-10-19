@@ -2,7 +2,6 @@ $primary-text-color : white;
 $secondary-text-color: #363636;
 $primary-background-color: #2B9348;
 $accent-color: rgba(255,255,255,0.5);
-$test-color: #E086D3;
 
 @mixin flex($direction, $align-items, $justify-content){
     display: flex;
@@ -29,9 +28,14 @@ body{
 
 button{
     color:black;
-    padding:.25rem 1rem;
+    padding: .5rem 1.5rem;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
+    font-size: 1rem;
+    outline:none;
+    appearance: none;
+    border:none;
+    box-sizing: content-box;
 }
 
 h3{
@@ -40,28 +44,27 @@ h3{
 }
 
 .password-container{
-    @include flex(row,center,center);
-
+    @include flex(column,center,space-between);
+    width: 100%;
     .password-text-container{
         @include flex(row,center, flex-start);
-
+        width: inherit;
+        margin: 2rem;
         .password-text{
             background-color: $accent-color;
             color:$secondary-text-color;
             font-weight: bold;
             font-size: 1.5rem;
             padding: .5rem 2rem;
+            height: 2.5rem;
             border-radius: 12px;
             width: 30vw;
+            flex-grow: 1;
             text-align: center;
         }
 
         .copy-btn{
-            outline:none;
-            appearance: none;
-            border:none;
-            -webkit-appearance: none;
-            background-color: transparent;
+            background: transparent;
             padding: 0;
             cursor: pointer;
 
@@ -69,6 +72,26 @@ h3{
                 height: 30px;
                 width: 30px;
             }
+        }
+    }
+
+    .generate-btn{
+        appearance: none;
+        background: transparent;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: 2px solid white;
+        transition: all linear 0.2s;
+
+        &:hover{
+            background: $accent-color;
+            color: black;
+        }
+
+        &:focus-visible{
+            background: $accent-color;
+            color: black;
         }
     }
 }
@@ -188,11 +211,8 @@ h3{
                     margin-right: 0;
                 }
                 
-
                 input{
                     appearance: none;
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
                     height: 1.25rem;
                     width: 2.5rem;
                     margin: 0;
@@ -203,28 +223,34 @@ h3{
                     position: relative;
                     cursor: pointer;
                     transition: all .2s;
+
+                    &::before{
+                        content:'';
+                        height: 1.25rem;
+                        width: 1.25rem;
+                        position: absolute;
+                        background: white;
+                        border-radius: 50%;
+                        // box-shadow: 0 0 2px 0 rgba(0,0,0,.15);
+                        transition: all .2s;
+                    }
+
+                    &:checked{
+                        background: $accent-color;
+                        outline: 2px solid white;
+                    }
+
+                    &:checked:before{
+                        transform: translate(100%);
+                        background:white;
+                    }
+
+                    &:focus-visible:before{
+                        outline: 2px solid $primary-background-color;
+                    }
                 }
     
-                input::before{
-                    content:'';
-                    height: 1.25rem;
-                    width: 1.25rem;
-                    position: absolute;
-                    background: white;
-                    border-radius: 50%;
-                    box-shadow: 0 0 2px 0 rgba(0,0,0,.15);
-                    transition: all .2s;
-                }
-    
-                input:checked{
-                    background: $accent-color;
-                    outline: 2px solid white;
-                }
-    
-                input:checked:before{
-                    transform: translate(100%);
-                    background:white;
-                }
+                
             }
             
         }
