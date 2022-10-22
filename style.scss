@@ -20,7 +20,7 @@ body{
     background-color: $primary-background-color;
     margin:0;
     font-family: 'Inter', sans-serif;
-    line-height: 1.75;
+    line-height: 1.5;
     font-weight: 400 !important;
     color:$primary-text-color;
     @include flex(row,center,center);
@@ -43,6 +43,10 @@ h3{
     margin-bottom:  .75rem; 
 }
 
+main{
+    width: 50%;
+}
+
 .password-container{
     @include flex(column,center,space-between);
     width: 100%;
@@ -56,11 +60,18 @@ h3{
             font-weight: bold;
             font-size: 1.5rem;
             padding: .5rem 2rem;
-            height: 2.5rem;
+            height: 2.25rem;
             border-radius: 12px;
-            width: 30vw;
             flex-grow: 1;
             text-align: center;
+            overflow: hidden;
+
+            @media screen and (max-width: 450px) {
+                height: 1.5rem;
+                font-size: 1rem;
+                border-radius: 6px;
+                padding: .25rem 1rem;
+            }
         }
 
         .copy-btn{
@@ -97,6 +108,7 @@ h3{
 }
 
 .password-settings-container{
+
     .password-settings-controls{
 
         fieldset{
@@ -195,21 +207,20 @@ h3{
         .password-filters-container{
             width: 100%;
             margin: 1rem 0;
-            @include flex(row, center, space-between);
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4, 1fr);
+
+            @media screen and (max-width: 1366px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            
 
             .password-filter-control{
 
                 @include flex(row, center, space-between);
                 width: inherit;
-                margin: 0 .5rem;
-
-                &:first-of-type{
-                    margin-left: 0;
-                }
-
-                &:last-of-type{
-                    margin-right: 0;
-                }
                 
                 input{
                     appearance: none;
@@ -257,6 +268,40 @@ h3{
     }
 }
 
+
+@media screen and (max-width: 1366px) {
+
+    main{
+        width: 60%;
+    }
+    
+    .password-filters-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    main{
+        width: 70%;
+    }
+
+    .password-filters-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 450px){
+
+    main{
+        width: 80%;
+        font-size: .85rem;
+    }
+
+    .password-filters-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
 
 
