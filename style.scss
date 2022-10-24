@@ -35,7 +35,6 @@ button{
     outline:none;
     appearance: none;
     border:none;
-    box-sizing: content-box;
 }
 
 h3{
@@ -55,23 +54,21 @@ main{
         width: inherit;
         margin: 2rem;
         .password-text{
+            appearance: none;
             background-color: $accent-color;
             color:$secondary-text-color;
+            font-family: 'Inter', sans-serif;
             font-weight: bold;
             font-size: 1.5rem;
             padding: .5rem 2rem;
             height: 2.25rem;
             border-radius: 12px;
             flex-grow: 1;
+            outline: none;
+            border:none;
             text-align: center;
             overflow: hidden;
-
-            @media screen and (max-width: 450px) {
-                height: 1.5rem;
-                font-size: 1rem;
-                border-radius: 6px;
-                padding: .25rem 1rem;
-            }
+            box-shadow: 0 0 8px 4px rgba(0,0,0,0.15);
         }
 
         .copy-btn{
@@ -208,14 +205,8 @@ main{
             width: 100%;
             margin: 1rem 0;
             display: grid;
-            gap: 1rem;
             grid-template-columns: repeat(4, 1fr);
-
-            @media screen and (max-width: 1366px) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            
+            gap: 1rem;
 
             .password-filter-control{
 
@@ -242,7 +233,6 @@ main{
                         position: absolute;
                         background: white;
                         border-radius: 50%;
-                        // box-shadow: 0 0 2px 0 rgba(0,0,0,.15);
                         transition: all .2s;
                     }
 
@@ -275,7 +265,7 @@ main{
         width: 60%;
     }
     
-    .password-filters-container{
+    .password-settings-container .password-settings-controls .password-filters-container{
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -286,7 +276,14 @@ main{
         width: 70%;
     }
 
-    .password-filters-container{
+    .password-container .password-text-container .password-text{
+        height: 2rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: .35rem 1.5rem;
+    }
+
+    .password-settings-container .password-settings-controls .password-filters-container{
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -298,11 +295,25 @@ main{
         font-size: .85rem;
     }
 
-    .password-filters-container{
+    h3{
+        font-size: 1rem;
+    }
+
+    .password-container .password-text-container .password-text{
+        height: 1.5rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        padding: .25rem 1rem;
+    }
+
+    .password-settings-container .password-settings-controls fieldset .range-tooltip{
+        bottom: 140%;
+    }
+
+    .password-settings-container .password-settings-controls  .password-filters-container{
         grid-template-columns: repeat(1, 1fr);
     }
 }
-
 
 
 

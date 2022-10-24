@@ -11,7 +11,6 @@ const uppercaseFilter = document.getElementById('uppercaseFilter');
 const lowercaseFilter = document.getElementById('lowercaseFilter');
 const numbersFilter = document.getElementById('numbersFilter');
 const symbolsFilter = document.getElementById('symbolsFilter');
-const password = document.getElementById('password');
 
 const getRandomInt = (length)=>{
     return Math.floor(Math.random() * (length));
@@ -47,6 +46,7 @@ range.addEventListener("input",setTooltip);
 const generatePassword = ()=>{
     let characterSet = [];
     const passwordText = [];
+    const password = document.getElementById('password');
     if(uppercaseFilter.checked) characterSet = characterSet.concat(uppercaseCharacters);
     if(lowercaseFilter.checked) characterSet = characterSet.concat(lowercaseCharacters);
     if(numbersFilter.checked) characterSet = characterSet.concat(numberCharacters);
@@ -55,7 +55,6 @@ const generatePassword = ()=>{
     if(characterSet.length){
         while(i<parseInt(range.value)){
             let char = getRandomCharacter(characterSet);
-            console.log(char);
             if(i!==0){
                 while(validateCharacter(char,passwordText[i-1])){
                     char = getRandomCharacter(characterSet);
@@ -64,9 +63,18 @@ const generatePassword = ()=>{
             passwordText.push(char);
             i++;
         }
-        console.log(passwordText);
-        password.innerText = passwordText.join('');
+        password.value = passwordText.join('');
         
     }
-    else password.innerText = "";
+    else password.value = "";
+}
+
+const copyPassword = ()=>{
+    const password = document.getElementById('password');
+    password.select();
+    navigator.clipboard.writeText(password.value);
+}
+
+const calculatePasswordStrength = ()=>{
+    
 }
