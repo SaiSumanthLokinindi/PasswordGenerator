@@ -1,319 +1,333 @@
-$primary-text-color : white;
+$primary-text-color: white;
 $secondary-text-color: #363636;
-$primary-background-color: #2B9348;
-$accent-color: rgba(255,255,255,0.5);
+$accent-color: rgba(255, 255, 255, 0.5);
 
-@mixin flex($direction, $align-items, $justify-content){
-    display: flex;
-    flex-direction:  $direction;
-    align-items: $align-items;
-    justify-content: $justify-content;
+@mixin flex($direction, $align-items, $justify-content) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
 }
 
-html{
-    font-size: 100%;
+html {
+  font-size: 100%;
 }
 
-body{
-    height: 100vh;
-    width:100%;
-    background-color: $primary-background-color;
-    margin:0;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.5;
-    font-weight: 400 !important;
-    color:$primary-text-color;
-    @include flex(row,center,center);
+body {
+  height: 100vh;
+  width: 100%;
+  background: #2b9348;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  font-weight: 400 !important;
+  color: $primary-text-color;
+  @include flex(row, center, center);
 }
 
-button{
-    color:black;
-    padding: .5rem 1.5rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-    outline:none;
+button {
+  color: black;
+  padding: 0.5rem 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  outline: none;
+  appearance: none;
+  border: none;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+main {
+  width: 50%;
+}
+
+.password-container {
+  @include flex(column, center, space-between);
+  width: 100%;
+  .password-text-container {
+    @include flex(row, center, flex-start);
+    width: inherit;
+    margin: 2rem;
+    .password-text {
+      appearance: none;
+      background-color: $accent-color;
+      color: $secondary-text-color;
+      font-family: "Inter", sans-serif;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 0.5rem 2rem;
+      height: 2.25rem;
+      border-radius: 12px;
+      flex-grow: 1;
+      outline: none;
+      border: none;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .copy-btn {
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+
+      img {
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+
+  .generate-btn {
     appearance: none;
-    border:none;
-}
+    background: transparent;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: 2px solid white;
+    transition: all linear 0.2s;
 
-h3{
-    font-size: 1.5rem;
-    margin-bottom:  .75rem; 
-}
-
-main{
-    width: 50%;
-}
-
-.password-container{
-    @include flex(column,center,space-between);
-    width: 100%;
-    .password-text-container{
-        @include flex(row,center, flex-start);
-        width: inherit;
-        margin: 2rem;
-        .password-text{
-            appearance: none;
-            background-color: $accent-color;
-            color:$secondary-text-color;
-            font-family: 'Inter', sans-serif;
-            font-weight: bold;
-            font-size: 1.5rem;
-            padding: .5rem 2rem;
-            height: 2.25rem;
-            border-radius: 12px;
-            flex-grow: 1;
-            outline: none;
-            border:none;
-            text-align: center;
-            overflow: hidden;
-            box-shadow: 0 0 8px 4px rgba(0,0,0,0.15);
-        }
-
-        .copy-btn{
-            background: transparent;
-            padding: 0;
-            cursor: pointer;
-
-            img{
-                height: 30px;
-                width: 30px;
-            }
-        }
+    &:hover {
+      background: $accent-color;
+      color: black;
     }
 
-    .generate-btn{
+    &:focus-visible {
+      background: $accent-color;
+      color: black;
+    }
+  }
+}
+
+.password-settings-container {
+  .password-settings-controls {
+    fieldset {
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      border: none;
+
+      label{
+        font-size: .85rem;
+      }
+
+      .password-length-range-input {
+        display: inline-flex;
+        width: 100%;
+
+        span:nth-of-type(1) {
+          margin-right: 0.5rem;
+        }
+        span:nth-of-type(2) {
+          margin-left: 0.5rem;
+        }
+      }
+
+      .range-container {
+        width: 100%;
+        position: relative;
+        @include flex(row, align-items, flex-start);
+      }
+
+      input[type="range"] {
         appearance: none;
+        width: 100%;
         background: transparent;
-        color: white;
-        border-radius: 4px;
+        margin: 0;
+
+        &:focus-visible {
+          outline: solid 0.125rem $accent-color;
+        }
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        height: 20px;
+        width: 20px;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.15);
         cursor: pointer;
-        outline: 2px solid white;
-        transition: all linear 0.2s;
+      }
 
-        &:hover{
-            background: $accent-color;
-            color: black;
-        }
+      input[type="range"]::-moz-range-thumb {
+        appearance: none;
+        height: 20px;
+        width: 20px;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+      }
 
-        &:focus-visible{
-            background: $accent-color;
-            color: black;
-        }
+      .range-tooltip {
+        position: absolute;
+        width: 50px;
+        border-radius: 4px;
+        color: $secondary-text-color;
+        background-color: $accent-color;
+        bottom: 120%;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .range-tooltip::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-top: 5px solid $accent-color;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        top: 100%;
+        left: calc(50% - 5px);
+      }
+
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 2px;
+        background: $accent-color;
+        cursor: pointer;
+      }
+
+      input[type="range"]::-moz-range-track {
+        width: 100%;
+        height: 2px;
+        cursor: pointer;
+        background: $accent-color;
+      }
     }
-}
 
-.password-settings-container{
+    .password-filters-container {
+      width: 100%;
+      margin: 1rem 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
 
-    .password-settings-controls{
+      .password-filter-control {
+        @include flex(row, center, space-between);
+        width: inherit;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        padding: 0.5rem 0.5rem;
+        box-sizing: border-box;
 
-        fieldset{
-            appearance: none;
-            padding: 0;
-            margin: 0;
-            border:none;
-
-            .password-length-range-input{
-                display: inline-flex;
-                width: 100%;
-
-                span:nth-of-type(1){
-                    margin-right: 0.5rem;
-                }
-                span:nth-of-type(2){
-                    margin-left: 0.5rem;
-                }
-            }
-
-            .range-container{
-                width: 100%;
-                position: relative;
-                @include flex(row, align-items,flex-start)
-            }
-
-            input[type=range]{
-                appearance: none;
-                width: 100%;
-                background: transparent;
-                margin: 0;
-
-                &:focus-visible{
-                    outline: solid 0.125rem $accent-color;
-                }
-            }
-            
-            input[type=range]::-webkit-slider-thumb{
-                appearance: none;
-                height:20px;
-                width:20px;
-                border: none;
-                border-radius: 50%;
-                box-shadow: 0 0 4px 1px rgba(0,0,0,0.15);
-                cursor:pointer;
-            }
-
-            input[type=range]::-moz-range-thumb{
-                appearance: none;
-                height:20px;
-                width:20px;
-                border: none;
-                border-radius: 50%;
-                box-shadow: 0 0 4px 1px rgba(0,0,0,0.15);
-                cursor:pointer;
-            }
-
-            .range-tooltip{
-                position: absolute;
-                width: 50px;
-                border-radius: 4px;
-                color: $secondary-text-color;
-                background-color: $accent-color;
-                bottom: 120%;
-                text-align: center;
-                font-weight: bold;
-            }
-
-            .range-tooltip::after{
-                content:"";
-                position: absolute;
-                width: 0;
-                border-top: 5px solid $accent-color;
-                border-left: 5px solid transparent;
-                border-right: 5px solid transparent;
-                top:100%;
-                left: calc(50% - 5px);
-            }
-
-            input[type=range]::-webkit-slider-runnable-track{
-                width:100%;
-                height: 2px;
-                background: $accent-color;
-                cursor: pointer;
-            }
-
-            input[type=range]::-moz-range-track{
-                width:100%;
-                height: 2px;
-                cursor: pointer;
-                background: $accent-color;
-            }
-
+        &:first-of-type {
+          padding-left: 0;
         }
 
-        .password-filters-container{
-            width: 100%;
-            margin: 1rem 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-
-            .password-filter-control{
-
-                @include flex(row, center, space-between);
-                width: inherit;
-                
-                input{
-                    appearance: none;
-                    height: 1.25rem;
-                    width: 2.5rem;
-                    margin: 0;
-                    background-color: $primary-background-color;
-                    outline: 2px solid $accent-color;
-                    box-sizing: border-box;
-                    border-radius: 10px;
-                    position: relative;
-                    cursor: pointer;
-                    transition: all .2s;
-
-                    &::before{
-                        content:'';
-                        height: 1.25rem;
-                        width: 1.25rem;
-                        position: absolute;
-                        background: white;
-                        border-radius: 50%;
-                        transition: all .2s;
-                    }
-
-                    &:checked{
-                        background: $accent-color;
-                        outline: 2px solid white;
-                    }
-
-                    &:checked:before{
-                        transform: translate(100%);
-                        background:white;
-                    }
-
-                    &:focus-visible:before{
-                        outline: 2px solid $primary-background-color;
-                    }
-                }
-    
-                
-            }
-            
+        &:last-of-type {
+          padding-right: 0;
         }
+
+        &:focus-within {
+          border: 2px solid $accent-color;
+        }
+
+        input {
+          appearance: none;
+          height: 1.25rem;
+          width: 2.5rem;
+          margin: 0;
+          background-color: transparent;
+          outline: 2px solid $accent-color;
+          box-sizing: border-box;
+          border-radius: 10px;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &::before {
+            content: "";
+            height: 1.25rem;
+            width: 1.25rem;
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.2s;
+          }
+
+          &:checked {
+            background: $accent-color;
+            outline: 2px solid white;
+          }
+
+          &:checked:before {
+            transform: translate(100%);
+            background: white;
+          }
+        }
+      }
     }
+  }
 }
-
 
 @media screen and (max-width: 1366px) {
+  main {
+    width: 60%;
+  }
 
-    main{
-        width: 60%;
-    }
-    
-    .password-settings-container .password-settings-controls .password-filters-container{
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .password-settings-container
+    .password-settings-controls
+    .password-filters-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 850px) {
+  main {
+    width: 70%;
+  }
 
-    main{
-        width: 70%;
-    }
+  .password-container .password-text-container .password-text {
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.35rem 1.5rem;
+  }
 
-    .password-container .password-text-container .password-text{
-        height: 2rem;
-        font-size: 1rem;
-        border-radius: 8px;
-        padding: .35rem 1.5rem;
-    }
-
-    .password-settings-container .password-settings-controls .password-filters-container{
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .password-settings-container
+    .password-settings-controls
+    .password-filters-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media screen and (max-width: 450px){
+@media screen and (max-width: 450px) {
+  main {
+    width: 80%;
+    font-size: 0.85rem;
+  }
 
-    main{
-        width: 80%;
-        font-size: .85rem;
-    }
+  h3 {
+    font-size: 1rem;
+  }
 
-    h3{
-        font-size: 1rem;
-    }
+  .password-container .password-text-container .password-text {
+    height: 1.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    padding: 0.25rem 1rem;
+  }
 
-    .password-container .password-text-container .password-text{
-        height: 1.5rem;
-        font-size: 1rem;
-        border-radius: 6px;
-        padding: .25rem 1rem;
-    }
+  .password-settings-container
+    .password-settings-controls
+    fieldset
+    .range-tooltip {
+    bottom: 140%;
+  }
 
-    .password-settings-container .password-settings-controls fieldset .range-tooltip{
-        bottom: 140%;
-    }
+  .password-settings-container
+    .password-settings-controls
+    .password-filters-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-    .password-settings-container .password-settings-controls  .password-filters-container{
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .password-settings-container .password-settings-controls .password-filters-container .password-filter-control{
+    padding: .5rem 0 !important;
+  }
 }
-
-
-

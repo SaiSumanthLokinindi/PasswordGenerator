@@ -5,7 +5,7 @@ html {
 body {
   height: 100vh;
   width: 100%;
-  background-color: #2B9348;
+  background: #2b9348;
   margin: 0;
   font-family: "Inter", sans-serif;
   line-height: 1.5;
@@ -110,6 +110,9 @@ main {
   margin: 0;
   border: none;
 }
+.password-settings-container .password-settings-controls fieldset label {
+  font-size: 0.85rem;
+}
 .password-settings-container .password-settings-controls fieldset .password-length-range-input {
   display: inline-flex;
   width: 100%;
@@ -204,6 +207,19 @@ main {
   align-items: center;
   justify-content: space-between;
   width: inherit;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
+}
+.password-settings-container .password-settings-controls .password-filters-container .password-filter-control:first-of-type {
+  padding-left: 0;
+}
+.password-settings-container .password-settings-controls .password-filters-container .password-filter-control:last-of-type {
+  padding-right: 0;
+}
+.password-settings-container .password-settings-controls .password-filters-container .password-filter-control:focus-within {
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 .password-settings-container .password-settings-controls .password-filters-container .password-filter-control input {
   -webkit-appearance: none;
@@ -212,7 +228,7 @@ main {
   height: 1.25rem;
   width: 2.5rem;
   margin: 0;
-  background-color: #2B9348;
+  background-color: transparent;
   outline: 2px solid rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
   border-radius: 10px;
@@ -236,9 +252,6 @@ main {
 .password-settings-container .password-settings-controls .password-filters-container .password-filter-control input:checked:before {
   transform: translate(100%);
   background: white;
-}
-.password-settings-container .password-settings-controls .password-filters-container .password-filter-control input:focus-visible:before {
-  outline: 2px solid #2B9348;
 }
 
 @media screen and (max-width: 1366px) {
@@ -282,5 +295,8 @@ main {
   }
   .password-settings-container .password-settings-controls .password-filters-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .password-settings-container .password-settings-controls .password-filters-container .password-filter-control {
+    padding: 0.5rem 0 !important;
   }
 }/*# sourceMappingURL=style.css.map */

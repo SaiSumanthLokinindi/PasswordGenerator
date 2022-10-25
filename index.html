@@ -14,13 +14,14 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body id="passwordGeneratorBody">
     <main>
       <section class="password-container">
         <div class="password-text-container">
           <input type="text" class="password-text" id="password" value="" readonly>
           <button class="copy-btn" label="copy" onclick="copyPassword()"><img src="./assets/copy_icon.svg" /></button>
         </div>
+        <!-- <div style="align-self: flex-start;">Very Strong</div> -->
         <button label="Generate password" class="generate-btn" onclick="generatePassword()">Generate</button>
       </section>
       <section class="password-settings-container">
