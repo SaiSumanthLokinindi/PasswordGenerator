@@ -123,7 +123,7 @@ const setTooltip = () => {
   rangeTooltip.style.left = `calc(${tooltipValue}% + ${tooltipPosition}px - 25px)`;
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   setTooltip();
   generatePassword();
 });
