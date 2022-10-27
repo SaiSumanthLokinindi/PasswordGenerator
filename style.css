@@ -32,7 +32,7 @@ button {
 
 h3 {
   font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  margin: 0.75rem 0;
 }
 
 main {
@@ -53,6 +53,7 @@ main {
   justify-content: flex-start;
   width: inherit;
   margin: 2rem;
+  margin-bottom: 0;
 }
 .password-container .password-text-container .password-text {
   -webkit-appearance: none;
@@ -71,7 +72,6 @@ main {
   border: none;
   text-align: center;
   overflow: hidden;
-  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.15);
 }
 .password-container .password-text-container .copy-btn {
   background: transparent;
@@ -82,14 +82,21 @@ main {
   height: 30px;
   width: 30px;
 }
+.password-container #passwordStrengthText {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  padding: 0.25rem 0;
+}
 .password-container .generate-btn {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   background: transparent;
+  margin: 1.5rem 0;
   color: white;
   border-radius: 4px;
   cursor: pointer;
+  width: 20%;
   outline: 2px solid white;
   transition: all linear 0.2s;
 }
@@ -209,7 +216,6 @@ main {
   width: inherit;
   border: 2px solid transparent;
   border-radius: 4px;
-  padding: 0.5rem 0.5rem;
   box-sizing: border-box;
 }
 .password-settings-container .password-settings-controls .password-filters-container .password-filter-control:first-of-type {
@@ -258,6 +264,9 @@ main {
   main {
     width: 60%;
   }
+  .password-container .generate-btn {
+    width: 30%;
+  }
   .password-settings-container .password-settings-controls .password-filters-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -271,6 +280,9 @@ main {
     font-size: 1rem;
     border-radius: 8px;
     padding: 0.35rem 1.5rem;
+  }
+  .password-container .generate-btn {
+    width: 40%;
   }
   .password-settings-container .password-settings-controls .password-filters-container {
     grid-template-columns: repeat(2, 1fr);
@@ -289,6 +301,13 @@ main {
     font-size: 1rem;
     border-radius: 6px;
     padding: 0.25rem 1rem;
+  }
+  .password-container #passwordStrengthText {
+    font-size: 0.75rem;
+    padding: 0;
+  }
+  .password-container .generate-btn {
+    width: 50%;
   }
   .password-settings-container .password-settings-controls fieldset .range-tooltip {
     bottom: 140%;

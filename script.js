@@ -169,8 +169,8 @@ const copyPassword = () => {
 
 const calculatePasswordStrength = () => {
   let passwordStrength = 0;
+  const passwordStrengthText = document.getElementById("passwordStrengthText");
   const body = document.getElementById("passwordGeneratorBody");
-  console.log(body);
   if (uppercaseFilter.checked) passwordStrength += 15;
   if (lowercaseFilter.checked) passwordStrength += 15;
   if (numbersFilter.checked) passwordStrength += 15;
@@ -181,16 +181,16 @@ const calculatePasswordStrength = () => {
   if (range.value > 26) passwordStrength += 10;
   console.log(passwordStrength);
   if (passwordStrength > 75) {
-    console.log("Very strong");
-    body.style.background = "#058c42";
+    passwordStrengthText.innerText = "Very Strong";
+    body.style.background = "#066025";
   } else if (passwordStrength > 55 && passwordStrength <= 75) {
-    console.log("Strong");
-    body.style.background = "#55a630";
+    passwordStrengthText.innerText = "Strong";
+    body.style.background = "#058c42";
   } else if (passwordStrength > 40 && passwordStrength <= 55) {
-    console.log("Weak");
-    body.style.background = "#FC621A";
+    passwordStrengthText.innerText = "Weak";
+    body.style.background = "#ED5145";
   } else {
-    console.log("Very weak");
+    passwordStrengthText.innerText = "Very Weak";
     body.style.background = "#d62828";
   }
 };
