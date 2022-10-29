@@ -163,8 +163,23 @@ const generatePassword = () => {
 
 const copyPassword = () => {
   const password = document.getElementById("password");
+  const copyButton = document.getElementById("copyButton");
+  const doneIcon = document.createElement("img");
+  doneIcon.src = "./assets/done_icon.svg";
+  doneIcon.alt = "copied";
   password.select();
   navigator.clipboard.writeText(password.value);
+  copyButton.innerText = "";
+  copyButton.appendChild(doneIcon);
+  copyButton.appendChild(document.createTextNode("Copied"));
+  copyButton.style.background = "rgba(255, 255, 255, 0.5)";
+  copyButton.style.color = "#363636";
+
+  setTimeout(() => {
+    copyButton.textContent = "Copy";
+    copyButton.style.background = "transparent";
+    copyButton.style.color = "white";
+  }, 3000);
 };
 
 const calculatePasswordStrength = () => {
@@ -179,7 +194,6 @@ const calculatePasswordStrength = () => {
   if (range.value > 14) passwordStrength += 10;
   if (range.value > 20) passwordStrength += 10;
   if (range.value > 26) passwordStrength += 10;
-  console.log(passwordStrength);
   if (passwordStrength > 75) {
     passwordStrengthText.innerText = "Very Strong";
     body.style.background = "#066025";

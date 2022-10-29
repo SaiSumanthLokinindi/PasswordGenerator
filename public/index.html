@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title>Password Generator</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,18 +25,23 @@
             value=""
             readonly
           />
-          <button class="copy-btn" label="copy" onclick="copyPassword()">
-            <img src="./assets/copy_icon.svg" />
-          </button>
+          
         </div>
         <div id="passwordStrengthText">Very Strong</div>
-        <button
+        <div class="action-buttons-container">
+          <button
           label="Generate password"
-          class="generate-btn"
+          id="generateButton"
+          class="action-button"
           onclick="generatePassword()"
         >
           Generate
         </button>
+          <button class="action-button" id="copyButton" label="copy" onclick="copyPassword()">
+            Copy
+          </button>
+        </div>
+        
       </section>
       <section class="password-settings-container">
         <h3 class="password-settings-title">Password Settings</h3>
