@@ -124,6 +124,8 @@ const setTooltip = () => {
 };
 
 window.addEventListener("load", () => {
+  const body = document.getElementById("passwordGeneratorBody");
+  body.style.height = window.innerHeight + "px";
   setTooltip();
   generatePassword();
 });
