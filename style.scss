@@ -22,6 +22,7 @@ body {
   line-height: 1.5;
   font-weight: 400 !important;
   color: $primary-text-color;
+  transition: background .5s ease;
   @include flex(row, center, center);
 }
 
@@ -87,8 +88,8 @@ main {
       @include flex(row, center, center);
       appearance: none;
       background: transparent;
-      color: white;
-      border: 2px solid white;
+      color: $primary-text-color;
+      border: 2px solid $primary-text-color;
       border-radius: 4px;
       width: 20%;
       cursor: pointer;
@@ -168,7 +169,7 @@ main {
         width: 20px;
         border: none;
         border-radius: 50%;
-        background: white;
+        background: $primary-text-color;
         margin-top: -0.55rem;
         box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.15);
         cursor: pointer;
@@ -179,7 +180,7 @@ main {
         height: 20px;
         width: 20px;
         border: none;
-        background: white;
+        background: $primary-text-color;
         border-radius: 50%;
         box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.15);
         cursor: pointer;
@@ -190,7 +191,7 @@ main {
         height: 20px;
         width: 20px;
         border: none;
-        background: white;
+        background: $primary-text-color;
         border-radius: 50%;
         box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.15);
         cursor: pointer;
@@ -281,19 +282,19 @@ main {
             height: 1.25rem;
             width: 1.25rem;
             position: absolute;
-            background: white;
+            background: $primary-text-color;
             border-radius: 50%;
             transition: all 0.2s;
           }
 
           &:checked {
             background: $accent-color;
-            box-shadow: 0 0 0 2px white;
+            box-shadow: 0 0 0 2px $primary-text-color;
           }
 
           &:checked:before {
             transform: translate(100%);
-            background: white;
+            background: $primary-text-color;
           }
         }
       }

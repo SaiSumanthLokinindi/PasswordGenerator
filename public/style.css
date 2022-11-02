@@ -11,6 +11,7 @@ body {
   line-height: 1.5;
   font-weight: 400 !important;
   color: white;
+  transition: background 0.5s ease;
   display: flex;
   flex-direction: row;
   align-items: center;
