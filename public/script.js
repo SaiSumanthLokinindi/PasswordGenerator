@@ -1,5 +1,9 @@
 "use strict";
 
+const doneIcon = document.createElement("img");
+doneIcon.src = "./assets/done_icon.svg";
+doneIcon.alt = "copied";
+
 const range = document.getElementById("passwordLength");
 const rangeTooltip = document.getElementById("rangeValue");
 
@@ -166,9 +170,6 @@ const generatePassword = () => {
 const copyPassword = () => {
   const password = document.getElementById("password");
   const copyButton = document.getElementById("copyButton");
-  const doneIcon = document.createElement("img");
-  doneIcon.src = "./assets/done_icon.svg";
-  doneIcon.alt = "copied";
   password.select();
   navigator.clipboard.writeText(password.value);
   copyButton.innerText = "";
